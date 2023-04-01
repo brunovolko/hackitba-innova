@@ -18,6 +18,7 @@ contract EquiGive {
 
 
     mapping(address => Donation[]) public userDonations;
+    mapping(address => DonationPackage[]) private userDonationPackages;
     mapping(address => Questionnaire) public userQuestionnaires;
 
     uint256 fee = 10; //Means 1% fee  To be updateable in future iterations
@@ -30,6 +31,10 @@ contract EquiGive {
     struct Donation {
         uint256 ong;
         uint256 amount;
+    }
+    struct DonationPackage {
+        uint256 id;
+        Donation[] donations;
     }
     struct Category {
         string name;
@@ -267,8 +272,15 @@ contract EquiGive {
     }
     //End of ONG functions
 
-    function getUserDonatiosCount(address _user) public view returns (uint256) {
+    function getUserDonationsCount(address _user) public view returns (uint256) {
         return userDonations[_user].length;
+    }
+    function getUserDonationsPackagesCount(address _user) public view returns (uint256) {
+        return userDonationPackages[_user].length;
+    }
+    function getUserDonationPackages(address _user, uint256 _index) public view returns (DonationPackage memory) {
+        require(_index < userDonationPackages[_user].length, "Index out of range");
+        return userDonationPackages[_user][_index];
     }
 
 
@@ -301,6 +313,8 @@ contract EquiGive {
         ong[_ong].qty++;
 
         userDonations[_donor].push(Donation(_ong, _amount));
+
+        userDonationPackages[_donor][userDonationPackages[_donor].length - 1].donations.push(userDonations[_donor][userDonations[_donor].length - 1]);
 
         emit DonationEvent(_donor, _ong, _amount);
     }
@@ -349,6 +363,10 @@ contract EquiGive {
 
             //Next iteration threshold para evitar donar a muy pequeñas coincidencias
         }
+
+        userDonationPackages[msg.sender].push(); //New donation package
+        userDonationPackages[msg.sender][userDonationPackages[msg.sender].length - 1].id = userDonationPackages[msg.sender].length - 1;
+
 
 
         for(uint256 i = 0; i < cantOngs; i++) {
