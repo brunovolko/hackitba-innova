@@ -1,93 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>equigive</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap" rel="stylesheet">
 
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar bg-body-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="equigive" class="logo"></a>
-              <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-light">Connect Wallet</button>
-              </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>equigive</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap"
+    rel="stylesheet">
+
+  <script type="text/javascript" src="js/web3.min.js"></script>
+</head>
+
+<body>
+  <!-- Responsive navbar-->
+  <nav class="navbar bg-body-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="equigive" class="logo"></a>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-light" id="btnConnect">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container text-center">
+    <div class="row justify-content-md-center checkout_container">
+      <h1>Donation certificate</h1>
+      <div class="col-md-auto">
+        <p>The donor
+          <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center"
+            type="button">0x74…4438f44e<i class="bi bi-files icon_copy"></i></button>
+          has successfully donated 0.20 ETH to the following donation package.
+        </p>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0 checkout_ngo_name"><a href="ngo.html?ong_id=2">Save a Child's Heart</a></h6>
+              <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center"
+                type="button">0x2a…a46bcD1d<i class="bi bi-files icon_copy"></i></button>
+              <small class="text-body-secondary"></small>
             </div>
-          </nav>
-          
-          <div class="container text-center">
-            <div class="row justify-content-md-center checkout_container">
-                <h1>Donation certificate</h1>
-                <div class="col-md-auto">
-                    <p>The donor
-                    <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center" type="button">0x74…4438f44e<i class="bi bi-files icon_copy"></i></button>
-                    has successfully donated 0.20 ETH to the following donation package.</p>
-                    <ul class="list-group mb-3">
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                          <div>
-                            <h6 class="my-0 checkout_ngo_name"><a href="ngo.html">Save a Child's Heart</a></h6>
-                            <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center" type="button">0x2a…a46bcD1d<i class="bi bi-files icon_copy"></i></button>
-                            <small class="text-body-secondary"></small>
-                          </div>
-                          <span class="text-body-secondary">0.10 ETH</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                          <div>
-                            <h6 class="my-0 checkout_ngo_name"><a href="ngo.html">International Medical Corps</a></h6>
-                            <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center" type="button">0x7c…31E486A8<i class="bi bi-files icon_copy"></i></button>
-                            <small class="text-body-secondary"></small>
-                          </div>
-                          <span class="text-body-secondary">0.07 ETH</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between lh-sm">
-                          <div>
-                            <h6 class="my-0 checkout_ngo_name"><a href="ngo.html">Direct Relief</a></h6>
-                            <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center" type="button">0x74…4438f44e<i class="bi bi-files icon_copy"></i></button>
-                            <small class="text-body-secondary eth_addreess"><a href=""></a></small>
-                          </div>
-                          <span class="text-body-secondary">0.03 ETH</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between">
-                          <strong>Total donation</strong>
-                          <strong>0.20 ETH</strong>
-                        </li>
-                      </ul>
-                      <p class="checkout_ngo_name">Transaction address:</p> <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center" type="button">0x1c10b406ca19b1c866d71892e78fC38fAf657a2f<i class="bi bi-files icon_copy"></i></button>
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-outline btn-lg px-4" href="donation_generator.html">Generate New Package</a>
-                        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#">Share Certificate</a>
-                    </div>
-                </div>
+            <span class="text-body-secondary">0.73 ETH</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0 checkout_ngo_name"><a href="ngo.html">International Medical Corps</a></h6>
+              <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center"
+                type="button">0x7c…31E486A8<i class="bi bi-files icon_copy"></i></button>
+              <small class="text-body-secondary"></small>
             </div>
-          </div>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; equigive 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+            <span class="text-body-secondary">0.21 ETH</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0 checkout_ngo_name"><a href="ngo.html">Direct Relief</a></h6>
+              <button class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center"
+                type="button">0x74…4438f44e<i class="bi bi-files icon_copy"></i></button>
+              <small class="text-body-secondary eth_addreess"><a href=""></a></small>
+            </div>
+            <span class="text-body-secondary">0.05 ETH</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <strong>Total donation</strong>
+            <strong>0.99 ETH</strong>
+          </li>
+        </ul>
+        <p class="checkout_ngo_name">Transaction address:</p> <button
+          class="btn btn-sm eth_address btn-primary-border d-inline-flex align-items-center"
+          type="button">0x1c10b406ca19b1c866d71892e78fC38fAf657a2f<i class="bi bi-files icon_copy"></i></button>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+          <a class="btn btn-outline btn-lg px-4" href="donation_generator.html">Generate New Package</a>
+          <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#">Share Certificate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white">Copyright &copy; equigive 2023</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+  <script src="js/connection.js"></script>
+</body>
+
 </html>

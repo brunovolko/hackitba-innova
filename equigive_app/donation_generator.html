@@ -1,134 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>equigive</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap" rel="stylesheet">
 
-    </head>
-    <body>
-        <!-- Responsive navbar-->
-        <nav class="navbar bg-body-primary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="equigive" class="logo"></a>
-              <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-light">Connect Wallet</button>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>equigive</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Bootstrap icons-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/styles.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Fira+Sans:ital,wght@0,400;0,600;0,900;1,400;1,600;1,900&display=swap"
+    rel="stylesheet">
+
+  <script type="text/javascript" src="js/web3.min.js"></script>
+
+</head>
+
+<body>
+  <!-- Responsive navbar-->
+  <nav class="navbar bg-body-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html"><img src="assets/logo.svg" alt="equigive" class="logo"></a>
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-light" id="btnConnect">Connect Wallet</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-5">
+    <div class="p-5 text-left bg-body-tertiary border rounded-3 donation_searchbar">
+      <p class="donation_p">I want to donate</p>
+      <input class="form-control" id="donation_amount" placeholder="Insert amount">
+      <p class="donation_p">ETH for</p>
+      <div class="dropdown dropdown_inline">
+        <button class="btn btn-secondary dropdown-toggle" id="btnCategoria" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">Choose your cause</button>
+        <ul class="dropdown-menu" id="dropdownCategoria">
+        </ul>
+      </div>
+      <p class="donation_p">in</p>
+      <div class="dropdown dropdown_inline">
+        <button class="btn btn-secondary dropdown-toggle" id="btnRegion" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false">Choose your region</button>
+        <ul class="dropdown-menu" id="dropdownRegion">
+        </ul>
+      </div>
+      <a class="btn btn-primary" href="donation.html" role="button" data-bs-toggle="modal"
+        data-bs-target="#donor_profile">Generate package and donate <i class="bi bi-arrow-right"></i></a>
+      <div class="modal fade" id="donor_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Create your donor profile</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>We have noticed this is your first donation. Congratulations! In order for us to generate your matching
+                donation package, please answer these questions.</p>
+              <label for="q1" class="form-label">How many collaborators should the NGO have?</label>
+              <input type="range" class="form-range" min="1" max="5" step="1" id="q1">
+              <div class="label_slider">
+                <span>Less than 10</span>
+                <span>More than 5000</span>
+              </div>
+
+              <label for="q2" class="form-label">How many years of experience do you expect the NGO to have?</label>
+              <input type="range" class="form-range" min="1" max="5" step="1" id="q2">
+              <div class="label_slider">
+                <span>0 years</span>
+                <span>Many years of experience</span>
+              </div>
+
+              <label for="q3" class="form-label">What scale of impact should the NGO have?</label>
+              <input type="range" class="form-range" min="1" max="5" step="1" id="q3">
+              <div class="label_slider">
+                <span>Family level</span>
+                <span>Regional</span>
+              </div>
+
+              <label for="q4" class="form-label">How local or international should the NGO be?</label>
+              <input type="range" class="form-range" min="1" max="5" step="1" id="q4">
+              <div class="label_slider">
+                <span>Local</span>
+                <span>International</span>
+              </div>
+
+              <label for="q5" class="form-label">How many unique donors should the NGO have anually?</label>
+              <input type="range" class="form-range" min="1" max="5" step="1" id="q5">
+              <div class="label_slider">
+                <span>Less than 10</span>
+                <span>More than 5000</span>
               </div>
             </div>
-          </nav>
-
-          <div class="container my-5">
-            <div class="p-5 text-left bg-body-tertiary border rounded-3 donation_searchbar">
-              <p class="donation_p">I want to donate</p>
-              <input class="form-control" id="donation_amount" placeholder="Insert amount">
-              <p class="donation_p">ETH for</p>
-              <div class="dropdown dropdown_inline">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Choose your cause</button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">War relief</a></li>
-                  <li><a class="dropdown-item" href="#">Children and youth</a></li>
-                  <li><a class="dropdown-item" href="#">Access to health</a></li>
-                  <li><a class="dropdown-item" href="#">Disasters relief</a></li>
-                  <li><a class="dropdown-item" href="#">Animal welfare</a></li>
-                  <li><a class="dropdown-item" href="#">Access to food</a></li>
-                  <li><a class="dropdown-item" href="#">Access to water</a></li>
-                  <li><a class="dropdown-item" href="#">Environment</a></li>
-                </ul>
-              </div>
-              <p class="donation_p">in</p>
-              <div class="dropdown dropdown_inline">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Choose your region</button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Sub-Saharan Africa</a></li>
-                  <li><a class="dropdown-item" href="#">Middle East and North Africa</a></li>
-                  <li><a class="dropdown-item" href="#">South Asia</a></li>
-                  <li><a class="dropdown-item" href="#">Southeast Asia</a></li>
-                  <li><a class="dropdown-item" href="#">Central America and The Caribbean</a></li>
-                  <li><a class="dropdown-item" href="#">South America</a></li>
-                </ul>
-              </div>
-              <a class="btn btn-primary" href="donation.html" role="button" data-bs-toggle="modal" data-bs-target="#donor_profile">Generate package and donate <i class="bi bi-arrow-right"></i></a>
-              <div class="modal fade" id="donor_profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Create your donor profile</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>We have noticed this is your first donation. Congratulations! In order for us to generate your matching donation package, please answer these questions.</p>
-                      <label for="q1" class="form-label">How many collaborators should the NGO have?</label>
-                      <input type="range" class="form-range" min="0" max="5" step="1" id="q1">
-                      <div class="label_slider">
-                        <span>Less than 10</span>
-                        <span>More than 5000</span>
-                      </div>
-                      
-                      <label for="q2" class="form-label">How many years of experience do you expect the NGO to have?</label>
-                      <input type="range" class="form-range" min="0" max="5" step="1" id="q2">
-                      <div class="label_slider">
-                        <span>0 years</span>
-                        <span>Many years of experience</span>
-                      </div>
-
-                      <label for="q3" class="form-label">What scale of impact should the NGO have?</label>
-                      <input type="range" class="form-range" min="0" max="5" step="1" id="q3">
-                      <div class="label_slider">
-                        <span>Family level</span>
-                        <span>Regional</span>
-                      </div>
-
-                      <label for="q4" class="form-label">How local or international should the NGO be?</label>
-                      <input type="range" class="form-range" min="0" max="5" step="1" id="q4">
-                      <div class="label_slider">
-                        <span>Local</span>
-                        <span>International</span>
-                      </div>
-
-                      <label for="q5" class="form-label">How many unique donors should the NGO have anually?</label>
-                      <input type="range" class="form-range" min="0" max="5" step="1" id="q5">
-                      <div class="label_slider">
-                        <span>Less than 10</span>
-                        <span>More than 5000</span>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <a class="btn btn-primary" href="donation.html" role="button">Continue</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button class="btn btn-primary" role="button" id="btnContinueForm">Continue</button>
             </div>
           </div>
+        </div>
+      </div>
 
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; equigive 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    </div>
+  </div>
+
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container px-5">
+      <p class="m-0 text-center text-white">Copyright &copy; equigive 2023</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <script src="js/connection.js"></script>
+
+
+</body>
+
 </html>
